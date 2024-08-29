@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @State var tempText: CategoryModel = .all
     var body: some View {
         TabView {
             HomeView()
@@ -16,10 +17,24 @@ struct MainTabView: View {
                 }
             AIView()
                 .tabItem {
-                    Label("AI추천", systemImage: "brain.head.profile")
+                    Label("AI", systemImage: "brain.head.profile")
                 }
+            
+            ZStack{
+                Color.gray.opacity(0.3).ignoresSafeArea()
+            }
+                .tabItem {
+                    Label("익명게시판", systemImage: "pencil.and.list.clipboard")
+                }
+            
+            ZStack{
+                Color.gray.opacity(0.3).ignoresSafeArea()
+            }
+                .tabItem {
+                    Label("설정", systemImage: "gearshape.fill")
+                }
+            
         }
         .tint(.primary)
-
     }
 }
